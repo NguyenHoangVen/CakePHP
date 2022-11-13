@@ -16,7 +16,7 @@ return [
      * Development Mode:
      * true: Errors and warnings shown.
      */
-    'debug' => filter_var(env('DEBUG', false), FILTER_VALIDATE_BOOLEAN),
+    'debug' => filter_var(env('DEBUG', true), FILTER_VALIDATE_BOOLEAN),
 
     /*
      * Configure basic information about the application.
@@ -293,8 +293,16 @@ return [
          * in app_local.php depending on the applications needs.
          */
         'default' => [
-            'className' => Connection::class,
-            'driver' => Mysql::class,
+            'className' => 'Cake\Database\Connection',
+            'driver' => 'Cake\Database\Driver\Mysql',
+            'host' => 'localhost',
+            'username' => 'root',
+            'password' => '',
+            'database' => 'par-process',
+            'encoding' => 'utf8mb4',
+            'cacheMetadata' => true,
+            // 'className' => Connection::class,
+            // 'driver' => Mysql::class,
             'persistent' => false,
             'timezone' => 'UTC',
 
